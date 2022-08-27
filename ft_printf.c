@@ -6,14 +6,33 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:46:49 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/27 18:07:06 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/08/27 19:16:30y yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-void	ft_print_str(const char **start, const char **format, int *n)
+static void ft_init_flags(t_flags *specication)
+{
+	// specication->flags = -1;
+	// specication->width = -1;
+	// specication->precision = -1;
+	// specication->modifier = -1;
+	specication->conversion = -1;
+	// specication->putnum = -1;
+	// specication->putlen = -1;
+}
+
+static void	ft_proc_per(const char **start, const char **format, int *n)
+{
+	t_flags	specication;
+	
+specication.conversion = ft_strchr("cspdiuxX%", **start);
+
+}
+
+static void	ft_print_str(const char **start, const char **format, int *n)
 {
 	while (**format != '%' && **format)
 		(*format)++;
@@ -34,8 +53,8 @@ int	ft_printf(const char *format, ...)
 		start = format;
 		if (*format != '%')
 			ft_print_str(&start, &format, &n);
-		// else
-		// 	ft_proc_per();
+		else
+			ft_proc_per(&start, &format, &n);
 	}
 	va_end(ap);
 	return (n);
@@ -47,19 +66,6 @@ int main(void)
 	ft_printf("aiueol");
 	return (0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // #define MAX_ARGS 3	/* 可変引数の最大個数 */
 // int add(int n, ...)

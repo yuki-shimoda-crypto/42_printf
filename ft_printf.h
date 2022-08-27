@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:57:55 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/08/27 16:29:10 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/08/27 19:24:34 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 
 typedef struct s_flags
 {
-	int		flags;
-	int		width;
-	int		precision;
-	int		modifier;
-	int		specifiers;
+	// int		flags;
+	// int		width;
+	// int		precision;
+	// int		modifier;
+	int		conversion;
 	int		putnum;
 	int		putlen;
 }				t_flags;
