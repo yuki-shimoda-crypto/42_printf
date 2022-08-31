@@ -21,15 +21,13 @@ static void ft_init_flags(t_flags *specication)
 	// specication->modifier = -1;
 	specication->conversion = -1;
 	// specication->putnum = -1;
-	// specication->putlen = -1;
 }
 
 static void	ft_proc_per(const char **start, const char **format, int *n)
 {
 	t_flags	specication;
 	
-specication.conversion = ft_strchr("cspdiuxX%", **start);
-
+	specication.conversion = ft_strchr("cspdiuxX%", (int)**start);
 }
 
 static void	ft_print_str(const char **start, const char **format, int *n)
@@ -48,13 +46,13 @@ int	ft_printf(const char *format, ...)
 
 	n = 0;
 	va_start(ap, format);
-	while (*format && *format)
+	while (*format)
 	{
 		start = format;
 		if (*format != '%')
 			ft_print_str(&start, &format, &n);
-		else
-			ft_proc_per(&start, &format, &n);
+		// else
+		// 	ft_proc_per(&start, &format, &n);
 	}
 	va_end(ap);
 	return (n);
