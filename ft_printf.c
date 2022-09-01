@@ -45,7 +45,7 @@ static size_t ft_put_hex(const char **format, unsigned int num)
 {
 	char	*hex;
 	size_t	printed;
-	int		i;
+	size_t		i;
 
 	hex = ft_dec_to_hex(num);
 	printed = ft_strlen(hex);
@@ -111,7 +111,7 @@ static size_t ft_put_char(int c)
 	return (1);
 }
 
-static void	ft_proc_per(const char **start, const char **format, size_t *printed, va_list ap)
+static void	ft_proc_per(const char **format, size_t *printed, va_list ap)
 {
 	(*format)++;
 	if (**format == 'c')
@@ -155,7 +155,7 @@ int	ft_printf(const char *format, ...)
 		if (*format != '%')
 			ft_print_str(&start, &format, &printed);
 		else
-			ft_proc_per(&start, &format, &printed, ap);
+			ft_proc_per(&format, &printed, ap);
 	}
 	va_end(ap);
 	return (printed);
