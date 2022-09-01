@@ -13,15 +13,36 @@
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-static size_t ft_put_int(int d)
+// static size_t ft_put_hex(const char **)
+// {
+// *uint
+// }
+static char *ft_uitoa(unsigned int num)
+{
+	char			ptr[11];
+	int				i;
+
+	i = 10;
+	ptr[10] = '\0';
+	while (num)
+	{
+		ptr[--i] = num % 10 + '0';
+		num /= 10;
+	}
+	return (ft_strdup(&ptr[i]));
+}
+
+static size_t ft_put_int(const char **format, int d)
 {
 	char	*num;
 	size_t	printed;
 
-	num = ft_itoa(d);
+	if (**format == 'u')
+		num = ft_uitoa(d);
+	else
+		num = ft_itoa(d);
 	printed = ft_strlen(num);
 	write(1, num, printed);
-	ft_itoa(d);
 	return (printed);
 }
 
@@ -60,18 +81,18 @@ static void	ft_proc_per(const char **start, const char **format, size_t *printed
 		*printed += ft_put_char(va_arg(ap, int));
 	else if (**format == 's')
 		*printed += ft_put_str(va_arg(ap, char *));
-	else if (**format == 'p')
-		*printed += ft_put_ptr(va_arg(ap, char *));
+	// else if (**format == 'p')
+	// 	*printed += ft_put_ptr(va_arg(ap, char *));
 	else if (**format == 'd')
-		*printed += ft_put_int(va_arg(ap, int));
+		*printed += ft_put_int(format, va_arg(ap, int));
 	else if (**format == 'i')
-		*printed += ft_put_int(va_arg(ap, int));
+		*printed += ft_put_int(format, va_arg(ap, int));
 	else if (**format == 'u')
-		*printed += ft_put_udec(va_arg(ap, int));
-	else if (**format == 'x')
-		*printed += ft_put_uhex(va_arg(ap, int));
-	else if (**format == 'X')
-		*printed += ft_put_uhex(va_arg(ap, int));
+		*printed += ft_put_int(format, va_arg(ap, unsigned int));
+	// else if (**format == 'x')
+	// 	*printed += ft_put_hex(va_arg(ap, int));
+	// else if (**format == 'X')
+	// 	*printed += ft_put_hex(va_arg(ap, int));
 	(*format)++;
 }
 
@@ -106,7 +127,7 @@ int	ft_printf(const char *format, ...)
 int main(void)
 {
 	// printf("%zu\n", ft_strlen("strlen"));
-	ft_printf("abc\n%c\n%s\n", 'd', "def");
+	ft_printf("abc\n%c\n%s\n%d\n%i\n%u\n", 'd', "def", 1, 10, 100);
 	return (0);
 }
 

@@ -6,14 +6,16 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/27 15:46:49 by yshimoda          #+#    #+#              #
-#    Updated: 2022/08/27 15:46:50 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/09/01 12:59:52 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= 
+SRCS		= ft_printf.c
 CC			= cc
 RM			= rm -f
 CFLAGS		= -Wall -Wextra -Werror -I 
+NAME		= libftprintf.a
+
 all:		$(NAME)
 
 clean:
