@@ -161,14 +161,14 @@ int	ft_printf(const char *format, ...)
 	return (printed);
 }
 
-int main(void)
-{
-	int	i;
+// int main(void)
+// {
+// 	int	i;
 
-	i = 0;
-	ft_printf("abc\n%c\n%s\n%d\n%i\n%u\n%x\n%X\n%p\n", 'd', "def", 1, 10, 100, 1000, 1000, &i);
-	return (0);
-}
+// 	i = 0;
+// 	ft_printf("abc\n%c\n%s\n%d\n%i\n%u\n%x\n%X\n%p\n", 'd', "def", 1, 10, 100, 1000, 1000, &i);
+// 	return (0);
+// }
 
 // #define MAX_ARGS 3	/* 可変引数の最大個数 */
 // int add(int n, ...)

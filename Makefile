@@ -6,7 +6,7 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/27 15:46:49 by yshimoda          #+#    #+#              #
-#    Updated: 2022/09/01 16:58:02 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/09/01 17:08:45 by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@ NAME		= libftprintf.a
 
 TESTDIR		= printfTester
 
+USAMIDIR	= printf-tester-tokyo
+
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
@@ -43,6 +45,10 @@ fclean:		clean
 
 re:			fclean all
 
-test:		make all -C $(TESTDIR)
+test:		all	
+			make all -C $(TESTDIR)
+
+usami:		
+			make test -C $(USAMIDIR)
 
 .PHONY:		all clean fclean re 
