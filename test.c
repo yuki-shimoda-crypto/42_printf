@@ -4,6 +4,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdarg.h>
+
+int ft_printf(const char *format, ...)
+{
+
+}
 
 int main(void)
 {
