@@ -6,11 +6,6 @@
 #include <string.h>
 #include <stdarg.h>
 
-int ft_printf(const char *format, ...)
-{
-
-}
-
 int main(void)
 {
 	long long	i;
@@ -18,6 +13,9 @@ int main(void)
 	i = 0;
 	printf("% d\n", 1000);
 	printf("% d\n", 1000);
+	printf("%x\n", 1000);
+	printf("%X\n", 1000);
+	printf("%p\n", &i);
 
 	return (0);
 }
