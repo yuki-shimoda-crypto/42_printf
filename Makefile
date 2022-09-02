@@ -6,27 +6,29 @@
 #    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/27 15:46:49 by yshimoda          #+#    #+#              #
-#    Updated: 2022/09/01 17:08:45 by yshimoda         ###   ########.fr        #
+#    Updated: 2022/09/01 17:41:12by yshimoda         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= ft_printf.c
+SRCS		=	ft_printf.c\
+				ft_put_num.c\
+				ft_put_str.c
 
-LIBFTDIR	= libft
+LIBFTDIR	=	libft
 
-OBJS		= $(SRCS:.c=.o)
+OBJS		=	$(SRCS:.c=.o)
 
-CC			= cc
+CC			=	cc
 
-CFLAGS		= -Wall -Wextra -Werror -I ft_printf.h
+CFLAGS		=	-Wall -Wextra -Werror -I ft_printf.h
 
-RM			= rm -f
+RM			=	rm -f
 
-NAME		= libftprintf.a
+NAME		=	libftprintf.a
 
-TESTDIR		= printfTester
+TESTDIR		=	printfTester
 
-USAMIDIR	= printf-tester-tokyo
+USAMIDIR	=	printf-tester-tokyo
 
 all:		$(NAME)
 
