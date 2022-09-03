@@ -10,8 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		=	ft_printf.c\
-				ft_put_num.c\
+SRCS		=	ft_printf.c		\
+				ft_put_num.c	\
 				ft_put_str.c
 
 LIBFTDIR	=	libft
@@ -25,10 +25,6 @@ CFLAGS		=	-Wall -Wextra -Werror -I ft_printf.h
 RM			=	rm -f
 
 NAME		=	libftprintf.a
-
-TESTDIR		=	printfTester
-
-USAMIDIR	=	printf-tester-tokyo
 
 all:		$(NAME)
 
@@ -46,11 +42,5 @@ fclean:		clean
 			$(RM) $(NAME)
 
 re:			fclean all
-
-test:			
-			make -C $(TESTDIR)
-
-usami:		
-			make test -C $(USAMIDIR)
 
 .PHONY:		all clean fclean re 
