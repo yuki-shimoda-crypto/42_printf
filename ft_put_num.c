@@ -33,10 +33,9 @@ static char	*ft_dec_to_hex(unsigned long num)
 	return (ft_strdup(&ptr[i]));
 }
 
-size_t	ft_put_hex(const char **format, unsigned long num)
+void	ft_put_hex(const char **format, unsigned long num, size_t *printed)
 {
 	char	*hex;
-	size_t	printed;
 	size_t	i;
 
 	hex = ft_dec_to_hex(num);
@@ -45,16 +44,14 @@ size_t	ft_put_hex(const char **format, unsigned long num)
 	{
 		while (hex[i] != '\0')
 		{
-			hex[i] = ft_toupper(hex[i]);
+			hex[i] = (char)ft_toupper(hex[i]);
 			i++;
 		}
 	}
-	printed = 0;
 	if (**format == 'p')
-		printed += write(1, "0x", 2);
-	printed += write(1, hex, ft_strlen(hex));
+		*printed += write(1, "0x", 2);
+	*printed += write(1, hex, ft_strlen(hex));
 	free(hex);
-	return (printed);
 }
 
 static char	*ft_uitoa(unsigned int num)
@@ -74,16 +71,14 @@ static char	*ft_uitoa(unsigned int num)
 	return (ft_strdup(&ptr[i]));
 }
 
-size_t	ft_put_int(const char **format, int d)
+void	ft_put_int(const char **format, int d, size_t *printed)
 {
 	char	*num;
-	size_t	printed;
 
 	if (**format == 'u')
 		num = ft_uitoa(d);
 	else
 		num = ft_itoa(d);
-	printed = write(1, num, ft_strlen(num));
+	*printed += write(1, num, ft_strlen(num));
 	free(num);
-	return (printed);
 }

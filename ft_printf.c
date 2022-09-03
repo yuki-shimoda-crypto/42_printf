@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 15:20:46 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/04 01:11:22 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/04 01:34:07 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ static void	ft_proc_per(const char **format, size_t *printed, va_list *ap)
 	else if (**format == 's')
 		*printed += ft_put_str((char *)va_arg(*ap, char *));
 	else if (**format == 'p')
-		*printed += ft_put_hex(format, (uintptr_t)va_arg(*ap, uintptr_t));
+		ft_put_hex(format, (uintptr_t)va_arg(*ap, uintptr_t), printed);
 	else if (**format == 'd' || **format == 'i')
-		*printed += ft_put_int(format, (int)va_arg(*ap, int));
+		ft_put_int(format, (int)va_arg(*ap, int), printed);
 	else if (**format == 'u')
-		*printed += ft_put_int(format, (unsigned int)va_arg(*ap, unsigned int));
+		ft_put_int(format, (unsigned int)va_arg(*ap, unsigned int), printed);
 	else if (**format == 'x' || **format == 'X')
-		*printed += ft_put_hex(format, (unsigned int)va_arg(*ap, unsigned int));
+		ft_put_hex(format, (unsigned int)va_arg(*ap, unsigned int), printed);
 	else if (**format == '%')
 		*printed += write(1, "%", 1);
 	(*format)++;
@@ -63,14 +63,14 @@ int	ft_printf(const char *format, ...)
 	return (printed);
 }
 
-// int main(void)
-// {
-// 	int	i;
+int main(void)
+{
+	int	i;
 
-// 	i = 0;
-// 	ft_printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\n", 'd', "def", 1, 10, 100,
-// 			1000, 1000, &i);
-// 	printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\n", 'd', "def", 1, 10, 100,
-// 			1000, 1000, &i);
-// 	return (0);
-// }
+	i = 0;
+	ft_printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\n", 'd', "def", 1, 10, 100,
+			1000, 1000, &i);
+	printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\n", 'd', "def", 1, 10, 100,
+			1000, 1000, &i);
+	return (0);
+}

@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 15:27:06 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/03 17:33:38 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/04 01:27:59 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 int			ft_printf(const char *format, ...);
 size_t		ft_put_char(char c);
 size_t		ft_put_str(char *str);
-size_t		ft_put_int(const char **format, int d);
-size_t		ft_put_hex(const char **format, unsigned long num);
+void		ft_put_int(const char **format, int d, size_t *printed);
+void		ft_put_hex(const char **format, unsigned long num, size_t *printed);
 
 #endif
