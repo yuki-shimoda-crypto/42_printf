@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 15:20:46 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/03 17:33:06 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/03 18:38:53 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,3 +63,13 @@ int	ft_printf(const char *format, ...)
 		return (-1);
 	return (printed);
 }
+
+// int main(void)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	ft_printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\n", 'd', "def", 1, 10, 100, 1000, 1000, &i);
+// 	printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\n", 'd', "def", 1, 10, 100, 1000, 1000, &i);
+// 	return (0);
+// }
