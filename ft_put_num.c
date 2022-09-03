@@ -13,11 +13,13 @@
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-static char	*ft_dec_to_hex(unsigned int num)
+static char	*ft_dec_to_hex(unsigned long num)
 {
 	char	ptr[13];
 	int		i;
 
+	if (num == 0)
+		return (ft_strdup("0"));
 	i = 12;
 	ptr[i] = '\0';
 	while (num)
@@ -31,7 +33,7 @@ static char	*ft_dec_to_hex(unsigned int num)
 	return (ft_strdup(&ptr[i]));
 }
 
-size_t	ft_put_hex(const char **format, unsigned int num)
+size_t	ft_put_hex(const char **format, unsigned long num)
 {
 	char	*hex;
 	size_t	printed;
@@ -49,8 +51,10 @@ size_t	ft_put_hex(const char **format, unsigned int num)
 		}
 	}
 	if (**format == 'p')
-		printed += write(1, "0x", 2);
+		write(1, "0x", 2);
 	write(1, hex, printed);
+	if (**format == 'p')
+		printed += 2;
 	free(hex);
 	return (printed);
 }
@@ -60,6 +64,8 @@ static char	*ft_uitoa(unsigned int num)
 	char			ptr[11];
 	int				i;
 
+	if (num == 0)
+		return (ft_strdup("0"));
 	i = 10;
 	ptr[i] = '\0';
 	while (num)
@@ -79,8 +85,8 @@ size_t	ft_put_int(const char **format, int d)
 		num = ft_uitoa(d);
 	else
 		num = ft_itoa(d);
-	free(num);
 	printed = ft_strlen(num);
 	write(1, num, printed);
+	free(num);
 	return (printed);
 }
