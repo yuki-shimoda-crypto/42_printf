@@ -3,6 +3,7 @@ printfはリターン -1を返す
 printf  return -1
 
 
+ft_printf
 
 size_t	-> int
 size_t	-> ssize_t
