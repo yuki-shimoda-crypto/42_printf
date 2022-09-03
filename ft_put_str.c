@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:46:49 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/03 13:17:38 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/03 17:32:22 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ size_t	ft_put_str(char *str)
 	return (write(1, str, ft_strlen(str)));
 }
 
-size_t	ft_put_char(int c)
+size_t	ft_put_char(char c)
 {
 	return (write(1, &c, 1));
 }
