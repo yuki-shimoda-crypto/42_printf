@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 15:20:46 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/03 18:38:53 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/03 18:42:13 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	ft_proc_per(const char **format, size_t *printed, va_list ap)
 	(*format)++;
 }
 
-static void	ft_print_str(const char **start, const char **format,\
+static void	ft_print_str(const char **start, const char **format,
 		size_t *printed)
 {
 	while (**format != '%' && **format)
@@ -69,7 +69,9 @@ int	ft_printf(const char *format, ...)
 // 	int	i;
 
 // 	i = 0;
-// 	ft_printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\n", 'd', "def", 1, 10, 100, 1000, 1000, &i);
-// 	printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\n", 'd', "def", 1, 10, 100, 1000, 1000, &i);
+// 	ft_printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\n", 'd', "def", 1, 10, 100,
+// 			1000, 1000, &i);
+// 	printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\n", 'd', "def", 1, 10, 100,
+// 			1000, 1000, &i);
 // 	return (0);
 // }

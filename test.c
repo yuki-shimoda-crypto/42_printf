@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
+#include "libft/libft.h"
 #include <limits.h>
 #include <math.h>
+#include <stdarg.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdarg.h>
 
-int main(void)
+int	main(void)
 {
 	// long long	i;
 	// char		str[10];
 	// int			num;
-	char		*test;
+	char *test;
 
 	// i = 0;
 	// bzero(str, 10);
