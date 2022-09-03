@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:57:55 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/01 17:47:45 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/03 11:33:55 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ typedef struct s_flags
 }				t_flags;
 
 int			ft_printf(const char *format, ...);
-size_t		ft_putchar(int c);
+size_t		ft_put_char(int c);
+size_t		ft_put_str(char *str);
+size_t		ft_put_int(const char **format, int d);
+size_t		ft_put_hex(const char **format, unsigned int num);
 
 #endif
