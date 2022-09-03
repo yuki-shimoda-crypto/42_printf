@@ -32,6 +32,11 @@ static void	ft_proc_per(const char **format, size_t *printed, va_list ap)
 		*printed += ft_put_hex(format, va_arg(ap, unsigned int));
 	else if (**format == 'X')
 		*printed += ft_put_hex(format, va_arg(ap, unsigned int));
+	else if (**format == '%')
+	{
+		*printed += 1;
+		write(1, "%", 1);
+	}
 	(*format)++;
 }
 
