@@ -6,28 +6,28 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 15:20:46 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/03 18:42:13 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/04 01:34:07 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
 
-static void	ft_proc_per(const char **format, size_t *printed, va_list ap)
+static void	ft_proc_per(const char **format, size_t *printed, va_list *ap)
 {
 	(*format)++;
 	if (**format == 'c')
-		*printed += ft_put_char((char)va_arg(ap, int));
+		*printed += ft_put_char((char)va_arg(*ap, int));
 	else if (**format == 's')
-		*printed += ft_put_str((char *)va_arg(ap, char *));
+		*printed += ft_put_str((char *)va_arg(*ap, char *));
 	else if (**format == 'p')
-		*printed += ft_put_hex(format, (uintptr_t)va_arg(ap, uintptr_t));
+		ft_put_hex(format, (uintptr_t)va_arg(*ap, uintptr_t), printed);
 	else if (**format == 'd' || **format == 'i')
-		*printed += ft_put_int(format, (int)va_arg(ap, int));
+		ft_put_int(format, (int)va_arg(*ap, int), printed);
 	else if (**format == 'u')
-		*printed += ft_put_int(format, (unsigned int)va_arg(ap, unsigned int));
+		ft_put_int(format, (unsigned int)va_arg(*ap, unsigned int), printed);
 	else if (**format == 'x' || **format == 'X')
-		*printed += ft_put_hex(format, (unsigned int)va_arg(ap, unsigned int));
+		ft_put_hex(format, (unsigned int)va_arg(*ap, unsigned int), printed);
 	else if (**format == '%')
 		*printed += write(1, "%", 1);
 	(*format)++;
@@ -38,8 +38,7 @@ static void	ft_print_str(const char **start, const char **format,
 {
 	while (**format != '%' && **format)
 		(*format)++;
-	write(1, *start, *format - *start);
-	*printed += *format - *start;
+	*printed += write(1, *start, *format - *start);
 }
 
 int	ft_printf(const char *format, ...)
@@ -56,7 +55,7 @@ int	ft_printf(const char *format, ...)
 		if (*format != '%')
 			ft_print_str(&start, &format, &printed);
 		else
-			ft_proc_per(&format, &printed, ap);
+			ft_proc_per(&format, &printed, &ap);
 	}
 	va_end(ap);
 	if (printed >= INT_MAX)
@@ -64,14 +63,14 @@ int	ft_printf(const char *format, ...)
 	return (printed);
 }
 
-// int main(void)
-// {
-// 	int	i;
+int main(void)
+{
+	int	i;
 
-// 	i = 0;
-// 	ft_printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\n", 'd', "def", 1, 10, 100,
-// 			1000, 1000, &i);
-// 	printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\n", 'd', "def", 1, 10, 100,
-// 			1000, 1000, &i);
-// 	return (0);
-// }
+	i = 0;
+	ft_printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\n", 'd', "def", 1, 10, 100,
+			1000, 1000, &i);
+	printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\n", 'd', "def", 1, 10, 100,
+			1000, 1000, &i);
+	return (0);
+}

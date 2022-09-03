@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 15:27:57 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/03 17:34:40 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/03 17:34:40yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,36 +33,31 @@ static char	*ft_dec_to_hex(unsigned long num)
 	return (ft_strdup(&ptr[i]));
 }
 
-size_t	ft_put_hex(const char **format, unsigned long num)
+void	ft_put_hex(const char **format, unsigned long num, size_t *printed)
 {
 	char	*hex;
-	size_t	printed;
 	size_t	i;
 
 	hex = ft_dec_to_hex(num);
-	printed = ft_strlen(hex);
 	i = 0;
 	if (**format == 'X')
 	{
-		while (i < printed)
+		while (hex[i] != '\0')
 		{
-			hex[i] = ft_toupper(hex[i]);
+			hex[i] = (char)ft_toupper(hex[i]);
 			i++;
 		}
 	}
 	if (**format == 'p')
-		write(1, "0x", 2);
-	write(1, hex, printed);
-	if (**format == 'p')
-		printed += 2;
+		*printed += write(1, "0x", 2);
+	*printed += write(1, hex, ft_strlen(hex));
 	free(hex);
-	return (printed);
 }
 
 static char	*ft_uitoa(unsigned int num)
 {
-	char			ptr[11];
-	int				i;
+	char	ptr[11];
+	int		i;
 
 	if (num == 0)
 		return (ft_strdup("0"));
@@ -76,17 +71,14 @@ static char	*ft_uitoa(unsigned int num)
 	return (ft_strdup(&ptr[i]));
 }
 
-size_t	ft_put_int(const char **format, int d)
+void	ft_put_int(const char **format, int d, size_t *printed)
 {
 	char	*num;
-	size_t	printed;
 
 	if (**format == 'u')
 		num = ft_uitoa(d);
 	else
 		num = ft_itoa(d);
-	printed = ft_strlen(num);
-	write(1, num, printed);
+	*printed += write(1, num, ft_strlen(num));
 	free(num);
-	return (printed);
 }
