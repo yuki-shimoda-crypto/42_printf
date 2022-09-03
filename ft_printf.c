@@ -67,33 +67,3 @@ int	ft_printf(const char *format, ...)
 	va_end(ap);
 	return (printed);
 }
-
-// int main(void)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	ft_printf("abc\n%c\n%s\n%d\n%i\n%u\n%x\n%X\n%p\n", 'd', "def", 1, 10, 100, 1000, 1000, &i);
-// 	return (0);
-// }
-
-// #define MAX_ARGS 3	/* 可変引数の最大個数 */
-// int add(int n, ...)
-// {
-//   int total = 0;
-//   va_list ap;
-//   va_start(ap, n);
-//   for(int i = 0; (i < n) && (i < MAX_ARGS); i++) {
-//     total += va_arg(ap, int);
-//   }
-//   va_end(ap);
-//   return total;
-// }
-// 
-// int main(int argc, char *argv[]) {
-//   printf("test 1:%d\n", add(0));
-//   printf("test 2:%d\n", add(1, 10));
-//   printf("test 3:%d\n", add(2, 10, 20));
-//   printf("test 4:%d\n", add(3, 10, 20, 30));
-//   printf("test 5:%d\n", add(4, 10, 20, 30, 40));
-// }
