@@ -47,8 +47,8 @@ fclean:		clean
 
 re:			fclean all
 
-test:		all	
-			make all -C $(TESTDIR)
+test:			
+			make -C $(TESTDIR)
 
 usami:		
 			make test -C $(USAMIDIR)

@@ -21,13 +21,13 @@ static void	ft_proc_per(const char **format, size_t *printed, va_list ap)
 	else if (**format == 's')
 		*printed += ft_put_str(va_arg(ap, char *));
 	else if (**format == 'p')
-		*printed += ft_put_hex(format, va_arg(ap, uintptr_t));
+		*printed += ft_put_hex(format, (uintptr_t)va_arg(ap, uintptr_t));
 	else if (**format == 'd')
-		*printed += ft_put_int(format, va_arg(ap, int));
+		*printed += ft_put_int(format, (int)va_arg(ap, int));
 	else if (**format == 'i')
-		*printed += ft_put_int(format, va_arg(ap, int));
+		*printed += ft_put_int(format, (int)va_arg(ap, int));
 	else if (**format == 'u')
-		*printed += ft_put_int(format, va_arg(ap, unsigned int));
+		*printed += ft_put_int(format, (unsigned int)va_arg(ap, unsigned int));
 	else if (**format == 'x')
 		*printed += ft_put_hex(format, va_arg(ap, unsigned int));
 	else if (**format == 'X')
@@ -52,7 +52,7 @@ int	ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	size_t		printed;
-	const char *start;
+	const char	*start;
 
 	printed = 0;
 	va_start(ap, format);
