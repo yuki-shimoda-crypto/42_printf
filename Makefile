@@ -11,7 +11,6 @@
 # **************************************************************************** #
 
 SRCS		=	ft_printf.c		\
-				ft_put_num.c	\
 				ft_put_str.c
 
 LIBFTDIR	=	libft
@@ -38,7 +37,6 @@ clean:
 			$(RM) $(OBJS)
 
 fclean:		clean
-			make fclean -C $(LIBFTDIR)
 			$(RM) $(NAME)
 
 re:			fclean all

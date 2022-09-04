@@ -107,7 +107,7 @@ write ssizet
 ptr[17]
 
 
-strdupを使った場合は
+strdupを使った場合はfreeをする
 必ず-1を返す
 
 
