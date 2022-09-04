@@ -63,3 +63,52 @@ else
 	;
 
 トラップ表現
+
+
+
+git log --static
+
+-Wall -Wextra -Werror -I 
+
+nm -u 
+
+ヘッダーファイル
+テストのために必要なものだけをインプットする
+
+formatとstartがおなじなら、一つを渡す
+
+strclen 
+sttchar strlen
+
+va_arg
+同じ型のキャスト入らない
+
+uの型は別にした方がよい
+
+％はcと同じ挙動をさせるべき
+jkj
+
+
+
+
+size_t -> ssize_t
+
+
+while (i < size)
+{
+	/* code */
+	i++
+}
+itoa base
+
+write ssizet
+
+
+ptr[17]
+
+
+strdupを使った場合は
+必ず-1を返す
+
+
+
