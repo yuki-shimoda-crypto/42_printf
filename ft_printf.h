@@ -20,5 +20,6 @@
 int			ft_printf(const char *format, ...);
 ssize_t		ft_put_char(char c);
 ssize_t		ft_put_str(char *str);
+ssize_t		ft_put_ptr(uintptr_t num);
 
 #endif

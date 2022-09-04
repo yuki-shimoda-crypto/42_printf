@@ -6,45 +6,12 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 15:20:46 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/04 21:36:40 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/04 23:27:01 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft/libft.h"
-
-static ssize_t	ft_putchar_fd(char c, int fd)
-{
-	return (write(fd, &c, 1));
-}
-
-static	void	ft_put_ptr(uintptr_t ptr, ssize_t *ptr_len)
-{
-	if (ptr >= 16)
-	{
-		ft_put_ptr(ptr / 16, ptr_len);
-		ft_put_ptr(ptr % 16, ptr_len);
-	}
-	else
-	{
-		if (ptr % 16 < 10)
-			*ptr_len += ft_putchar_fd(ptr + '0', 1);
-		else
-			*ptr_len += ft_putchar_fd(ptr + 'a' - 10, 1);
-	}
-}
-
-static	ssize_t	ft_ptr(uintptr_t ptr)
-{
-	ssize_t	ptr_len;
-	
-	ptr_len = write(1, "0x", 2);
-	if (!ptr)
-		ptr_len += write(1, "0", 1);
-	else
-		ft_put_ptr(ptr, &ptr_len);
-	return (ptr_len);
-}
 
 static	ssize_t	ft_putnbr_base(ssize_t nbr, char *base)
 {
@@ -79,10 +46,7 @@ static void	ft_proc_per(const char **format, ssize_t *printed, va_list *ap)
 	else if (**format == 's')
 		*printed += ft_put_str(va_arg(*ap, char *));
 	else if (**format == 'p')
-	{
-		*printed += write(1, "0x", 2);
-		*printed += ft_putnbr_base(va_arg(*ap, uintptr_t), "0123456789abcdef");
-	}
+		*printed += ft_put_ptr(va_arg(*ap, uintptr_t));
 	else if (**format == 'd' || **format == 'i')
 		*printed += ft_putnbr_base((ssize_t)va_arg(*ap, int), "0123456789");
 	else if (**format == 'u')
