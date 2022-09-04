@@ -34,7 +34,7 @@ $(NAME):	$(OBJS)
 			ar rcs $(NAME) $(OBJS)
 
 clean:
-			make clean -C $(LIBFTDIR)
+			make fclean -C $(LIBFTDIR)
 			$(RM) $(OBJS)
 
 fclean:		clean
