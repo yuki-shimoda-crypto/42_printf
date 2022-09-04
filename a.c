@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/03 15:27:57 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/03 23:21:03 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/04 12:28:21 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,3 +93,10 @@ size_t	ft_put_int(const char **format, int d)
 }
 
 使用した関数を出すコマンド
+
+
+
+makefile
+fclenにする
+
+nm command// 使用関数を見る関数
