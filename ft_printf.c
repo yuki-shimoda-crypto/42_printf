@@ -5,15 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/03 15:20:46 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/05 13:32:19 by yshimoda         ###   ########.fr       */
+/*   Created: 2022/09/05 13:42:08 by yshimoda          #+#    #+#             */
+/*   Updated: 2022/09/05 13:42:11 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
 #include "libft/libft.h"
 
-static	ssize_t	ft_putnbr_base(ssize_t nbr, char *base)
+static ssize_t	ft_putnbr_base(ssize_t nbr, char *base)
 {
 	ssize_t	base_len;
 	ssize_t	nbr_len;
@@ -50,11 +49,14 @@ static void	ft_proc_per(const char **format, ssize_t *printed, va_list *ap)
 	else if (**format == 'd' || **format == 'i')
 		*printed += ft_putnbr_base((ssize_t)va_arg(*ap, int), "0123456789");
 	else if (**format == 'u')
-		*printed += ft_putnbr_base((ssize_t)va_arg(*ap, unsigned int), "0123456789");
+		*printed += ft_putnbr_base((ssize_t)va_arg(*ap, unsigned int),
+				"0123456789");
 	else if (**format == 'x')
-		*printed += ft_putnbr_base((ssize_t)va_arg(*ap, unsigned int), "0123456789abcdef");
+		*printed += ft_putnbr_base((ssize_t)va_arg(*ap, unsigned int),
+				"0123456789abcdef");
 	else if (**format == 'X')
-		*printed += ft_putnbr_base((ssize_t)va_arg(*ap, unsigned int), "0123456789ABCDEF");
+		*printed += ft_putnbr_base((ssize_t)va_arg(*ap, unsigned int),
+				"0123456789ABCDEF");
 	else if (**format == '%')
 		*printed += write(1, "%", 1);
 	(*format)++;
@@ -64,7 +66,7 @@ static void	ft_print_str(const char **format, ssize_t *printed)
 {
 	const char	*start;
 
-	start =	*format;
+	start = *format;
 	while (**format != '%' && **format)
 		(*format)++;
 	*printed += write(1, start, *format - start);
@@ -72,8 +74,8 @@ static void	ft_print_str(const char **format, ssize_t *printed)
 
 int	ft_printf(const char *format, ...)
 {
-	va_list		ap;
-	ssize_t		printed;
+	va_list	ap;
+	ssize_t	printed;
 
 	printed = 0;
 	va_start(ap, format);
@@ -134,8 +136,8 @@ int	ft_printf(const char *format, ...)
 // 	printf("#mix\n");
 // 	ft_printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\t%%\n", 'd', "def", 1, 10,
 // 			100, 100, 100, &i);
-// 	printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\t%%\n\n", 'd', "def", 1, 10, 100,
-// 			100, 100, &i);
+// 	printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\t%%\n\n", 'd', "def", 1, 10,
+//			100, 100, 100, &i);
 
 // 	printf("#return\n");
 // 	printf("%d\n", ft_printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\t%%\n", 'c',

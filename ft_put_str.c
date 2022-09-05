@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
+#include "libft/libft.h"
 
 ssize_t	ft_put_str(char *str)
 {

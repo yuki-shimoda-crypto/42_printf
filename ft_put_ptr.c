@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
+#include "libft/libft.h"
 
 static void	ft_output(uintptr_t num, ssize_t *num_len)
 {
@@ -40,7 +40,7 @@ static void	ft_output(uintptr_t num, ssize_t *num_len)
 ssize_t	ft_put_ptr(uintptr_t num)
 {
 	ssize_t	num_len;
-	
+
 	num_len = write(1, "0x", 2);
 	if (!num)
 		num_len += write(1, "0", 1);
