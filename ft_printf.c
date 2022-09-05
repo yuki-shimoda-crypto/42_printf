@@ -6,11 +6,12 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 13:42:08 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/05 13:42:11 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/05 13:54:29 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft/libft.h"
+#include "ft_printf.h"
 
 static ssize_t	ft_putnbr_base(ssize_t nbr, char *base)
 {
