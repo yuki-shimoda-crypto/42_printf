@@ -1,18 +1,6 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/27 15:46:49 by yshimoda          #+#    #+#              #
-#    Updated: 2022/09/01 17:41:12by yshimoda         ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
-
 SRCS		=	ft_printf.c		\
-				ft_put_num.c	\
-				ft_put_str.c
+				ft_put_str.c	\
+				ft_put_ptr.c
 
 LIBFTDIR	=	libft
 
@@ -38,7 +26,6 @@ clean:
 			$(RM) $(OBJS)
 
 fclean:		clean
-			make fclean -C $(LIBFTDIR)
 			$(RM) $(NAME)
 
 re:			fclean all
