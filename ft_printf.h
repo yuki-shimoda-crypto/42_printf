@@ -16,6 +16,7 @@
 # include <limits.h>
 # include <stdarg.h>
 # include <unistd.h>
+# include <inttypes.h>
 
 int			ft_printf(const char *format, ...);
 ssize_t		ft_put_char(char c);

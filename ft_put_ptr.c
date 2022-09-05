@@ -13,13 +13,10 @@
 #include "libft/libft.h"
 #include "ft_printf.h"
 
-static ssize_t	ft_putchar(char c)
-{
-	return (write(1, &c, 1));
-}
-
 static void	ft_output(uintptr_t num, ssize_t *num_len)
 {
+	char	c;
+
 	if (num >= 16)
 	{
 		ft_output(num / 16, num_len);
@@ -28,9 +25,15 @@ static void	ft_output(uintptr_t num, ssize_t *num_len)
 	else
 	{
 		if (num % 16 < 10)
-			*num_len += ft_putchar(num + '0');
+		{
+			c = (char)num + '0';
+			*num_len += write(1, &c, 1);
+		}
 		else
-			*num_len += ft_putchar(num + 'a' - 10);
+		{
+			c = (char)num + 'a' - 10;
+			*num_len += write(1, &c, 1);
+		}
 	}
 }
 

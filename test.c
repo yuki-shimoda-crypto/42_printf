@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:46:49 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/03 17:11:27 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/05 11:30:42 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(void)
 	// long long	i;
 	// char		str[10];
 	// int			num;
-	char *test;
+	// char *test;
 
 	// i = 0;
 	// bzero(str, 10);
@@ -44,11 +44,12 @@ int	main(void)
 	// // printf("%zu\n", strlen(NULL));
 	// strcpy(str, "test");
 	// printf("%s\n", str);
-	test = (char *)malloc(sizeof(char) * 2147483647);
+	// test = (char *)malloc(sizeof(char) * 2147483647);
 	// if (test == NULL)
 	// 	return (NULL);
-	memset(test, 'a', 2147483647);
-	printf("%s\n", test);
-	free(test);
+	// memset(test, 'a', 2147483647);
+	// printf("%s\n", test);
+	// free(test);
+	write(1, , 1);
 	return (0);
 }

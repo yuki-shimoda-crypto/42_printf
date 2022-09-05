@@ -11,7 +11,8 @@
 # **************************************************************************** #
 
 SRCS		=	ft_printf.c		\
-				ft_put_str.c
+				ft_put_str.c	\
+				ft_put_ptr.c
 
 LIBFTDIR	=	libft
 
