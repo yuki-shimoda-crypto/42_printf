@@ -6,7 +6,7 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 13:42:08 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/05 13:54:29 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/15 16:17:59 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,15 @@ static void	ft_proc_per(const char **format, ssize_t *printed, va_list *ap)
 	else if (**format == 'p')
 		*printed += ft_put_ptr(va_arg(*ap, uintptr_t));
 	else if (**format == 'd' || **format == 'i')
-		*printed += ft_putnbr_base((ssize_t)va_arg(*ap, int), "0123456789");
+		*printed += ft_putnbr_base((ssize_t)va_arg(*ap, int), DEC);
 	else if (**format == 'u')
-		*printed += ft_putnbr_base((ssize_t)va_arg(*ap, unsigned int),
-				"0123456789");
+		*printed += ft_putnbr_base((ssize_t)va_arg(*ap, unsigned int), DEC);
 	else if (**format == 'x')
 		*printed += ft_putnbr_base((ssize_t)va_arg(*ap, unsigned int),
-				"0123456789abcdef");
+				HEX_LOWER);
 	else if (**format == 'X')
 		*printed += ft_putnbr_base((ssize_t)va_arg(*ap, unsigned int),
-				"0123456789ABCDEF");
+				HEX_UPPER);
 	else if (**format == '%')
 		*printed += write(1, "%", 1);
 	(*format)++;
@@ -138,7 +137,7 @@ int	ft_printf(const char *format, ...)
 // 	ft_printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\t%%\n", 'd', "def", 1, 10,
 // 			100, 100, 100, &i);
 // 	printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\t%%\n\n", 'd', "def", 1, 10,
-//			100, 100, 100, &i);
+// 			100, 100, 100, &i);
 
 // 	printf("#return\n");
 // 	printf("%d\n", ft_printf("abc\t%c\t%s\t%d\t%i\t%u\t%x\t%X\t%p\t%%\n", 'c',
