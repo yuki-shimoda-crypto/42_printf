@@ -6,19 +6,15 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 15:22:37 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/01 00:00:11 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/09/15 15:40:02 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <ctype.h>
 # include <limits.h>
-# include <stdint.h>
-# include <stdio.h>
 # include <stdlib.h>
-# include <string.h>
 # include <unistd.h>
 
 typedef struct s_list
