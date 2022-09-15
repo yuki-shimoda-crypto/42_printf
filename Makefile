@@ -8,7 +8,7 @@ OBJS		=	$(SRCS:.c=.o)
 
 CC			=	cc
 
-CFLAGS		=	-Wall -Wextra -Werror -I ft_printf.h
+CFLAGS		=	-Wall -Wextra -Werror
 
 RM			=	rm -f
 
