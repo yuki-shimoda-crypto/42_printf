@@ -2,8 +2,6 @@ SRCS		=	ft_printf.c		\
 				ft_put_str.c	\
 				ft_put_ptr.c
 
-LIBFTDIR	=	libft
-
 OBJS		=	$(SRCS:.c=.o)
 
 CC			=	cc
@@ -17,12 +15,9 @@ NAME		=	libftprintf.a
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			make -C $(LIBFTDIR)
-			cp libft/libft.a $(NAME)
 			ar rcs $(NAME) $(OBJS)
 
 clean:
-			make fclean -C $(LIBFTDIR)
 			$(RM) $(OBJS)
 
 fclean:		clean

@@ -6,12 +6,11 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:46:49 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/05 14:15:22 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/11 20:56:19 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 
 static void	ft_output(uintptr_t num, ssize_t *num_len)
 {

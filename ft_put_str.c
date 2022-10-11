@@ -6,12 +6,11 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:46:49 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/15 16:04:37 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/11 20:56:32 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include "libft/libft.h"
 
 ssize_t	ft_put_str(char *str)
 {

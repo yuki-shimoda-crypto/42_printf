@@ -6,12 +6,21 @@
 /*   By: yshimoda <yshimoda@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 13:42:08 by yshimoda          #+#    #+#             */
-/*   Updated: 2022/09/15 16:17:59 by yshimoda         ###   ########.fr       */
+/*   Updated: 2022/10/11 21:00:48 by yshimoda         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
 #include "ft_printf.h"
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
 
 static ssize_t	ft_putnbr_base(ssize_t nbr, char *base)
 {
